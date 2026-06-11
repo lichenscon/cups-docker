@@ -30,6 +30,9 @@ RUN apt-get update -qq  && apt-get upgrade -qqy \
     hp-ppd \
     hplip \
     avahi-daemon \
+    wget \
+    && wget https://gdlp01.c-wss.com/gds/2/0100007602/49/linux-UFRII-drv-v630-m17n-07.tar.gz \
+    && tar -xf linux-UFRII-drv-v630-m17n-07.tar.gz \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
