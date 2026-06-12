@@ -21,14 +21,6 @@ RUN apt-get update -qq  && apt-get upgrade -qqy \
     usbutils \
     cups \
     cups-filters \
-    printer-driver-all \
-    printer-driver-cups-pdf \
-    printer-driver-foo2zjs \
-    foomatic-db-compressed-ppds \
-    openprinting-ppds \
-    hpijs-ppds \
-    hp-ppd \
-    hplip \
     avahi-daemon \
     wget \
     binutils-common \
