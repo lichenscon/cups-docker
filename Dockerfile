@@ -31,9 +31,11 @@ RUN apt-get update -qq  && apt-get upgrade -qqy \
     hplip \
     avahi-daemon \
     wget \
+    ar \
     && wget https://gdlp01.c-wss.com/gds/2/0100007602/49/linux-UFRII-drv-v630-m17n-07.tar.gz \
-    && mkdir /tmp/canon && tar -xzvf linux-UFRII-drv-v630-m17n-07.tar.gz -C /tmp/canon \
-    && (yes | /tmp/canon/linux-UFRII-drv-v630-m17n/install.sh) \
+    && mkdir /tmp/canon /tmp/canon-extract && tar -xzvf linux-UFRII-drv-v630-m17n-07.tar.gz -C /tmp/canon \
+    && apt-get install -y cups libcups2t64 libcupsimage2t64 ghostscript libjpeg62-turbo libgcrypt20 libgtk-3-0t64 libjbig0 zlib1g lsb-release \
+    && dpkg -i -G --force-overwrite /tmp/canon/linux-UFRII-drv-v630-m17n/x64/Debian/cnrdrvcups-ufr2-uk_6.30-1.07_amd64.deb \
     && rm -rf /tmp \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
