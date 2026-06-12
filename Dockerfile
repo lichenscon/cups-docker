@@ -28,15 +28,17 @@ RUN apt-get update -qq  && apt-get upgrade -qqy \
     && mkdir /tmp/canon /tmp/canon-extract && tar -xzvf linux-UFRII-drv-v630-m17n-07.tar.gz -C /tmp/canon \
     && apt-get install -y cups cups-bsd libcups2t64 libcupsimage2t64 ghostscript libjpeg62-turbo libgcrypt20 libgtk-3-0t64 libjbig0 zlib1g lsb-release \
     && dpkg -i -G --force-overwrite /tmp/canon/linux-UFRII-drv-v630-m17n/x64/Debian/cnrdrvcups-ufr2-uk_6.30-1.07_amd64.deb \
-    && dpkg --add-achritecture i386 \
+    && dpkg --add-architecture i386 \
     && apt-get update \
     && wget https://download.brother.com/welcome/dlfp002171/ql550cupswrapper-1.0.1-0.i386.deb -O /tmp/ql550cupswrapper-1.0.1-0.i386.deb \
     && wget https://download.brother.com/welcome/dlfp002168/ql550lpr-1.0.1-0.i386.deb -O /tmp/ql550lpr-1.0.1-0.i386.deb \
+    && mkdir -p /var/spool/lpd/ \
     && dpkg -i --force-all /tmp/ql550lpr-1.0.1-0.i386.deb \
     && dpkg -i --force-all /tmp/ql550cupswrapper-1.0.1-0.i386.deb \
     && rm -rf /tmp \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && linux-UFRII-drv-v630-m17n-07.tar.gz 
 
 EXPOSE 631
 EXPOSE 5353/udp
