@@ -38,7 +38,7 @@ RUN apt-get update -qq  && apt-get upgrade -qqy \
     && rm -rf /tmp \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    && linux-UFRII-drv-v630-m17n-07.tar.gz 
+    && rm /linux-UFRII-drv-v630-m17n-07.tar.gz 
 
 EXPOSE 631
 EXPOSE 5353/udp
